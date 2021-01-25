@@ -1,4 +1,6 @@
 import React from 'react'
+import CardHeading from './CardHeading'
+import CardFooter from './CardFooter'
 import styled from 'styled-components'
 
 const StyledCard = styled.div`
@@ -14,7 +16,9 @@ const StyledCard = styled.div`
 const Card = props => {  
   return (
     <StyledCard>
-      <p>Card</p>
+      <CardHeading />
+      <p>Content</p>
+      <CardFooter />
     </StyledCard>
   )
 }
