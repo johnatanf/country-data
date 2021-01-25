@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import formatThousands from 'format-thousands'
 
 const StyledCountrySingleDescription = styled.div`
   padding: 0px 25px 20px 25px;
@@ -75,7 +76,7 @@ const CountrySingleDescription = props => {
           <li>subregion: { country.subregion }</li>
           <li>borders: { borders }</li>
           <li>timezones: { timezones }</li>
-          <li>land area: { country.area }</li>
+          <li>land area: { `${formatThousands(country.area, ',')} km²` }</li>
         </ul>
       </StyledSection>
       <StyledSection>
@@ -88,7 +89,7 @@ const CountrySingleDescription = props => {
       <StyledSection>
         <StyledSectionHeading>people</StyledSectionHeading>
         <ul>
-          <li>population: { country.population }</li>
+          <li>population: { formatThousands(country.population, ',') }</li>
           <li>demonym: { country.demonym }</li>
           <li>languages: { convertLanguagesToString() }</li>
         </ul>
