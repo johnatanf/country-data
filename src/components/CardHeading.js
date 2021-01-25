@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledCardHeading = styled.div`
+  font-family: Arial;
   display: flex;
   align-items: center;
   width: 100%;
