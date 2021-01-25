@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const StyledCountrySingleDescription = styled.div`
   padding: 0px 25px 20px 25px;
+  margin-top: 20px;
 `
 
 const StyledHeading = styled.h1`

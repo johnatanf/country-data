@@ -8,9 +8,10 @@ const StyledInput = styled.input`
   font-size: 20px;
   padding: 15px 25px;
   border: 0;
+  border-bottom: 5px solid #212121;
 
   &:focus {
-    outline: 2px solid lightgrey;
+    outline: 2px solid black;
   }
 `
 
