@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Card from './components/Card'
 import countriesServices from './services/countries'
 
 const App = () => {
@@ -20,7 +21,9 @@ const App = () => {
   }, [])
   
   return (
-    <p>App</p>
+    <div>
+      <Card />
+    </div>
   )
 }
 

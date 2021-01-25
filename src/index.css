@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background: linear-gradient(90deg, #2C3E50, #4CA1AF)
 }
 ol, ul {
 	list-style: none;
