@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledFooter = styled.div`
+  font-family: Concert One;
   padding: 10px 25px;
   font-size: 14px;
   background: #212121;
