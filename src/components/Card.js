@@ -1,6 +1,7 @@
 import React from 'react'
 import CardHeading from './CardHeading'
 import SearchBar from './SearchBar'
+import CountryDisplay from './CountryDisplay'
 import CardFooter from './CardFooter'
 import styled from 'styled-components'
 
@@ -19,7 +20,12 @@ const Card = props => {
   return (
     <StyledCard>
       <CardHeading />
-      <SearchBar 
+      <SearchBar
+        search={props.search}
+        setSearch={props.setSearch}
+      />
+      <CountryDisplay 
+        countries={props.countries}
         search={props.search}
         setSearch={props.setSearch}
       />

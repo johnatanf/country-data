@@ -26,6 +26,7 @@ const App = () => {
       <Card 
         search={search}
         setSearch={setSearch}
+        countries={countries}
       />
     </div>
   )
