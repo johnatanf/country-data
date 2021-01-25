@@ -39,7 +39,7 @@ const CountryItem = props => {
 
 const CountryDisplay = props => {
   const filteredCountries = props.countries.filter(country => {
-    return country.name.toLowerCase().includes(props.search)
+    return country.name.toLowerCase().includes(props.search.toLowerCase())
   })
 
   if(filteredCountries.length === 1) {
