@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import NavBar from './components/NavBar'
 import Card from './components/Card'
 import countriesServices from './services/countries'
 
@@ -23,6 +24,7 @@ const App = () => {
   
   return (
     <div>
+      <NavBar />
       <Card 
         search={search}
         setSearch={setSearch}
