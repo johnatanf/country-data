@@ -12,11 +12,13 @@ const RankingsMode = props => {
   //   </>
   // )
 
-  const sortByStatistic = (a, b) => a.gini - b.gini
+  const option = props.option
+
+  const sortByStatistic = (a, b) => b[option] - a[option]
 
   const rankedCountries = props.countries
     .sort(sortByStatistic)
-    .filter(country => country.gini)
+    .filter(country => country[option]) // remove countries that don't have the statistic in question 
     .slice(0, 50)
 
   return (
@@ -27,7 +29,7 @@ const RankingsMode = props => {
           imgUrl={ country.flag }
           imgAlt={`${ country.name } flag`}
           countryName={ country.name }
-          statistic={ formatThousands(country.gini , ',') }
+          statistic={ `${formatThousands(country[option] , ',')} ${option === 'area' ? 'km²' : ''}` }
         />
       )}
     </>

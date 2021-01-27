@@ -20,7 +20,11 @@ const Card = props => {
   return (
     <StyledCard>
       <CardHeading />
-        <RankingsMode countries={props.countries} />
+        <RankingsMode 
+          countries={props.countries} 
+          option={props.option}
+          setOption={props.setOption}
+        />
       <CardFooter />
     </StyledCard>
   )

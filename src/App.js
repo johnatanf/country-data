@@ -6,6 +6,7 @@ import countriesServices from './services/countries'
 const App = () => {
   const [countries, setCountries] = useState([])
   const [search, setSearch] = useState('')
+  const [option, setOption] = useState('')
 
   useEffect(() => { // retrieve countries from api or from local storage 
     const retrieveCountries = async () => {
@@ -29,6 +30,8 @@ const App = () => {
         search={search}
         setSearch={setSearch}
         countries={countries}
+        option={option}
+        setOption={setOption}
       />
     </div>
   )
