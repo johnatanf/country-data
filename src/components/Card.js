@@ -16,10 +16,9 @@ const StyledCard = styled.div`
   background: white;
 `
 
-const Card = props => {
+const SearchMode = props => {
   return (
-    <StyledCard>
-      <CardHeading />
+    <>
       <SearchBar
         search={props.search}
         setSearch={props.setSearch}
@@ -29,6 +28,19 @@ const Card = props => {
         search={props.search}
         setSearch={props.setSearch}
       />
+    </>
+  )
+}
+
+const RankingsMode = props => {
+  return null
+}
+
+const Card = props => {
+  return (
+    <StyledCard>
+      <CardHeading />
+        <RankingsMode />
       <CardFooter />
     </StyledCard>
   )
