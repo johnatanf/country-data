@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledCountryItem = styled.div`
+const StyledCountrySearchItem = styled.div`
   transition: background 0.5s;
   display: flex;
   align-items: center;
@@ -27,13 +27,13 @@ const StyledCountryName = styled.span`
   flex-basis: auto;
 `
 
-const CountryItem = props => {
+const CountrySearchItem = props => {
   return (
-    <StyledCountryItem onClick={() => props.setSearch(props.countryName.toLowerCase())}>
+    <StyledCountrySearchItem onClick={() => props.setSearch(props.countryName.toLowerCase())}>
       <StyledFlag src={props.imgUrl} alt={props.imgAlt} />
       <StyledCountryName>{props.countryName}</StyledCountryName>
-    </StyledCountryItem>
+    </StyledCountrySearchItem>
   )
 }
 
-export default CountryItem
+export default CountrySearchItem

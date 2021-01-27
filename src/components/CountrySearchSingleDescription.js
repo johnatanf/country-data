@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import formatThousands from 'format-thousands'
 
-const StyledCountrySingleDescription = styled.div`
+const StyledCountrySearchSingleDescription = styled.div`
   padding: 0px 25px 20px 25px;
   margin-top: 20px;
 `
@@ -33,7 +33,7 @@ const StyledSectionHeading = styled.h2`
   font-weight: 600;
 `
 
-const CountrySingleDescription = props => {
+const CountrySearchSingleDescription = props => {
   const country = props.country
   const borders = props.country.borders.join(', ')
   const timezones = props.country.timezones.join(', ')
@@ -55,7 +55,7 @@ const CountrySingleDescription = props => {
   }
   
   return (
-    <StyledCountrySingleDescription>      
+    <StyledCountrySearchSingleDescription>      
       <StyledHeading>{country.name}</StyledHeading>
       <StyledFlag src={country.flag} alt={`${country.name} flag`}/>
       <StyledCapitalText>{country.capital ? `capital: ${country.capital}` : ''}</StyledCapitalText>
@@ -94,8 +94,8 @@ const CountrySingleDescription = props => {
           <li>languages: { convertLanguagesToString() }</li>
         </ul>
       </StyledSection>
-    </StyledCountrySingleDescription>
+    </StyledCountrySearchSingleDescription>
   )
 }
 
-export default CountrySingleDescription
+export default CountrySearchSingleDescription
