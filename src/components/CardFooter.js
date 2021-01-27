@@ -8,13 +8,21 @@ const StyledFooter = styled.div`
   background: #212121;
   color: white;
   border-radius: 0px 0px 10px 10px;
-  text-align: left;
+  text-align: center;
+`
+
+const StyledLink = styled.a`
+  color: white;
+
+  &:visited {
+    color: white;
+  }
 `
 
 const CardFooter = (props) => {
   return (
     <StyledFooter>
-      Footer
+      Data source: REST COUNTRIES (<StyledLink href='https://restcountries.eu/'>https://restcountries.eu</StyledLink>)
     </StyledFooter>
   )
 }

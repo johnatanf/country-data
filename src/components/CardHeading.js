@@ -18,7 +18,7 @@ const StyledCardHeading = styled.div`
 const CardHeading = () => {
   return (
     <StyledCardHeading>
-      HEADING
+      COUNTRY DATA
     </StyledCardHeading>
   )
 }
