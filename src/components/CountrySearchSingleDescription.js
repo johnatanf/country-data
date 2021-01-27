@@ -25,12 +25,23 @@ const StyledCapitalText = styled.p`
 `
 
 const StyledSection = styled.section`
-  margin: 15px 0;
+  margin: 30px 0;
+
+  & > ul > li {
+    margin: 10px 0;
+  }
 `
 
-const StyledSectionHeading = styled.h2`
+const StyledSectionHeading = styled.div`
+  display: flex;
+  align-items: center;
   font-size: 1.25em;
   font-weight: 600;
+`
+
+const StyledIcon = styled.i`
+  color: #5c7cfa;
+  width: 30px;
 `
 
 const CountrySearchSingleDescription = props => {
@@ -60,7 +71,10 @@ const CountrySearchSingleDescription = props => {
       <StyledFlag src={country.flag} alt={`${country.name} flag`}/>
       <StyledCapitalText>{country.capital ? `capital: ${country.capital}` : ''}</StyledCapitalText>
       <StyledSection>
-        <StyledSectionHeading>organisations</StyledSectionHeading>
+        <StyledSectionHeading>
+          <StyledIcon className="fas fa-landmark"></StyledIcon>
+          <span>ORGANISATIONS</span>
+        </StyledSectionHeading>
         <ul>
           {country.regionalBlocs.map(org => (
             <li key={org.acronym}>
@@ -70,24 +84,33 @@ const CountrySearchSingleDescription = props => {
         </ul>
       </StyledSection>
       <StyledSection>
-        <StyledSectionHeading>geography</StyledSectionHeading>
+        <StyledSectionHeading>
+          <StyledIcon className="fas fa-globe-asia"></StyledIcon>
+          <span>GEOGRAPHY</span>
+        </StyledSectionHeading>
         <ul>
-          <li>region: { country.region }</li>
-          <li>subregion: { country.subregion }</li>
-          <li>borders: { borders }</li>
-          <li>timezones: { timezones }</li>
-          <li>land area: { `${formatThousands(country.area, ',')} km²` }</li>
+          <li>Region: { country.region }</li>
+          <li>Subregion: { country.subregion }</li>
+          <li>Borders: { borders }</li>
+          <li>Timezones: { timezones }</li>
+          <li>Land area: { `${formatThousands(country.area, ',')} km²` }</li>
         </ul>
       </StyledSection>
       <StyledSection>
-        <StyledSectionHeading>economy</StyledSectionHeading>
+        <StyledSectionHeading>
+          <StyledIcon className="fas fa-dollar-sign"></StyledIcon>
+          <span>ECONOMY</span>
+        </StyledSectionHeading>
         <ul>
           <li>gini index: { country.gini }</li>
           <li>currencies: { convertCurrenciesToString() }</li>
         </ul>
       </StyledSection>
       <StyledSection>
-        <StyledSectionHeading>people</StyledSectionHeading>
+        <StyledSectionHeading>
+          <StyledIcon className="fas fa-users"></StyledIcon>
+          <span>PEOPLE</span>
+        </StyledSectionHeading>
         <ul>
           <li>population: { formatThousands(country.population, ',') }</li>
           <li>demonym: { country.demonym }</li>
