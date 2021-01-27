@@ -37,8 +37,19 @@ const StyledLinks = styled.span`
 const NavBar = props => {
   return (
     <StyledNav>
-      <StyledLinks className='active'>Search</StyledLinks>
-      <StyledLinks>Rankings</StyledLinks>
+      <StyledLinks
+        className={ `${ props.mode === 'search' ? 'active' : '' }` }
+        onClick={ () => props.setMode('search') }
+      >
+        Search
+      </StyledLinks>
+
+      <StyledLinks
+        className={ `${ props.mode === 'rankings' ? 'active' : '' }` }
+        onClick={ () => props.setMode('rankings') }
+      >
+        Rankings
+      </StyledLinks>
     </StyledNav>
   )
 }

@@ -20,11 +20,23 @@ const Card = props => {
   return (
     <StyledCard>
       <CardHeading />
+        {
+
+        props.mode === 'search'
+        ?
+        <SearchMode 
+          countries={props.countries}
+          search={props.search}
+          setSearch={props.setSearch}
+        />
+        :
         <RankingsMode 
           countries={props.countries} 
           option={props.option}
           setOption={props.setOption}
         />
+        
+        }
       <CardFooter />
     </StyledCard>
   )

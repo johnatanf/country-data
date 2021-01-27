@@ -7,6 +7,7 @@ const App = () => {
   const [countries, setCountries] = useState([])
   const [search, setSearch] = useState('')
   const [option, setOption] = useState('')
+  const [mode, setMode] = useState('search')
 
   useEffect(() => { // retrieve countries from api or from local storage 
     const retrieveCountries = async () => {
@@ -25,13 +26,17 @@ const App = () => {
   
   return (
     <div>
-      <NavBar />
+      <NavBar 
+        mode={mode}
+        setMode={setMode}
+      />
       <Card 
         search={search}
         setSearch={setSearch}
         countries={countries}
         option={option}
         setOption={setOption}
+        mode={mode}
       />
     </div>
   )
