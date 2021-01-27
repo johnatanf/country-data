@@ -2,6 +2,7 @@ import React from 'react'
 import CardHeading from './CardHeading'
 import SearchBar from './SearchBar'
 import CountrySearchDisplay from './CountrySearchDisplay'
+import CountryRankingOption from './CountryRankingOption'
 import CardFooter from './CardFooter'
 import styled from 'styled-components'
 
@@ -33,18 +34,20 @@ const SearchMode = props => {
 }
 
 const RankingsMode = props => {
-  return null
+  return (
+    <>
+      <CountryRankingOption option='population'/>
+      <CountryRankingOption option='land area'/>
+      <CountryRankingOption option='gini index'/>
+    </>
+  )
 }
 
 const Card = props => {
   return (
     <StyledCard>
       <CardHeading />
-        <SearchMode 
-          countries={props.countries}
-          search={props.search}
-          setSearch={props.setSearch}
-        />
+        <RankingsMode />
       <CardFooter />
     </StyledCard>
   )
