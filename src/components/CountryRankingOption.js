@@ -19,8 +19,8 @@ const StyledCountryRankingItem = styled.div`
 
 const CountryRankingOption = props => {
   return (
-    <StyledCountryRankingItem>
-      <p>{props.option}</p>
+    <StyledCountryRankingItem onClick={() => props.setOption(props.value)}>
+      <p>{props.title}</p>
     </StyledCountryRankingItem>
   )
 }
