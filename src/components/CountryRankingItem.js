@@ -28,12 +28,12 @@ const StyledFlag = styled.img`
 
 const StyledCountryName = styled.span`
   flex-grow: 1;
-  flex-basis: auto;
 `
 
 const StyledStatistic = styled.span`
   flex-grow: 0;
   flex-basis: auto;
+  text-align: right;
 `
 
 const CountryRankingItem = props => {
