@@ -112,8 +112,8 @@ const CountrySearchSingleDescription = props => {
           <span>ECONOMY</span>
         </StyledSectionHeading>
         <ul>
-          <li>gini index: { country.gini }</li>
-          <li>currencies: { convertCurrenciesToString() }</li>
+          <li>Gini index: { country.gini }</li>
+          <li>Currencies: { convertCurrenciesToString() }</li>
         </ul>
       </StyledSection>
       <StyledSection>
@@ -122,9 +122,9 @@ const CountrySearchSingleDescription = props => {
           <span>PEOPLE</span>
         </StyledSectionHeading>
         <ul>
-          <li>population: { formatThousands(country.population, ',') }</li>
-          <li>demonym: { country.demonym }</li>
-          <li>languages: { convertLanguagesToString() }</li>
+          <li>Population: { formatThousands(country.population, ',') }</li>
+          <li>Demonym: { country.demonym }</li>
+          <li>Languages: { convertLanguagesToString() }</li>
         </ul>
       </StyledSection>
     </StyledCountrySearchSingleDescription>
