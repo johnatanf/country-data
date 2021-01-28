@@ -3,9 +3,21 @@ import CountrySearchItem from './CountrySearchItem'
 import CountrySearchSingleDescription from './CountrySearchSingleDescription'
 
 const CountrySearchDisplay = props => {
-  const filteredCountries = props.countries.filter(country => {
-    return country.name.toLowerCase().includes(props.search.toLowerCase())
-  })
+  const filterCountries = () => {
+    const singleCountry = props.countries.find(country => {
+      return country.name.toLowerCase() === props.search.toLowerCase()
+    })
+
+    if(singleCountry) {
+      return [singleCountry]
+    } else {
+      return props.countries.filter(country => {
+        return country.name.toLowerCase().includes(props.search.toLowerCase())
+      })
+    }
+  }
+
+  const filteredCountries = filterCountries(); 
 
   const borderCodes = props.countries.map(country => {
     return { [country.alpha3Code]: country.name }
