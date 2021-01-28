@@ -17,9 +17,16 @@ const StyledCountryRankingItem = styled.div`
   }
 `
 
+const StyledIcon = styled.i`
+  color: #5c7cfa;
+  flex-basis: 30px;
+  text-align: center;
+`
+
 const CountryRankingOption = props => {
   return (
     <StyledCountryRankingItem onClick={() => props.setOption(props.value)}>
+      <StyledIcon className={props.iconClasses}></StyledIcon>
       <p>{props.title}</p>
     </StyledCountryRankingItem>
   )

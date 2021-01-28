@@ -13,16 +13,19 @@ const RankingsMode = props => {
     return (
       <>
         <CountryRankingOption 
+          iconClasses='fas fa-users'
           title='population'
           value='population'
           setOption={props.setOption}
         />
         <CountryRankingOption 
+          iconClasses='fas fa-globe-asia'
           title='land area'
           value='area'
           setOption={props.setOption}
         />
         <CountryRankingOption 
+          iconClasses='fas fa-dollar-sign'
           title='gini index'
           value='gini'
           setOption={props.setOption}
