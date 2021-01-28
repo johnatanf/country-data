@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import MapboxGLMap from './MapboxGLMap'
 import formatThousands from 'format-thousands'
 
 const StyledCountrySearchSingleDescription = styled.div`
@@ -74,10 +75,11 @@ const CountrySearchSingleDescription = props => {
   }
   
   return (
-    <StyledCountrySearchSingleDescription>      
+    <StyledCountrySearchSingleDescription>         
       <StyledHeading>{country.name}</StyledHeading>
       <StyledFlag src={country.flag} alt={`${country.name} flag`}/>
       <StyledCapitalText>{country.capital ? `capital: ${country.capital}` : ''}</StyledCapitalText>
+      <MapboxGLMap country={props.country} />
       <StyledSection>
         <StyledSectionHeading>
           <StyledIcon className="fas fa-landmark"></StyledIcon>
