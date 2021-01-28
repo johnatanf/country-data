@@ -7,8 +7,12 @@ const CountrySearchDisplay = props => {
     return country.name.toLowerCase().includes(props.search.toLowerCase())
   })
 
+  const borderCodes = props.countries.map(country => {
+    return { [country.alpha3Code]: country.name }
+  })
+
   if(filteredCountries.length === 1) {
-    return <CountrySearchSingleDescription country={ filteredCountries[0] }/> 
+    return <CountrySearchSingleDescription country={ filteredCountries[0] } borderCodes={ borderCodes }/> 
   }
   else if(filteredCountries.length <= 5) {
     return (

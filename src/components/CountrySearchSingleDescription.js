@@ -46,8 +46,16 @@ const StyledIcon = styled.i`
 
 const CountrySearchSingleDescription = props => {
   const country = props.country
-  const borders = props.country.borders.join(', ')
   const timezones = props.country.timezones.join(', ')
+
+  const convertBordersToString = () => {
+    const borderCodes = props.borderCodes
+    let countryBorders = props.country.borders
+    countryBorders = countryBorders.map(border => {
+      return borderCodes.find(country => country[border])[border]
+    })
+    return countryBorders.join(', ')
+  }
   
   const convertCurrenciesToString = () => {
     let resultArr = []
@@ -91,7 +99,7 @@ const CountrySearchSingleDescription = props => {
         <ul>
           <li>Region: { country.region }</li>
           <li>Subregion: { country.subregion }</li>
-          <li>Borders: { borders }</li>
+          <li>Borders: { convertBordersToString() }</li>
           <li>Timezones: { timezones }</li>
           <li>Land area: { `${formatThousands(country.area, ',')} km²` }</li>
         </ul>
