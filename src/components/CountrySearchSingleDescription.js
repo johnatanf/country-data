@@ -46,9 +46,6 @@ const StyledIcon = styled.i`
 `
 
 const CountrySearchSingleDescription = props => {
-  const country = props.country
-  const timezones = props.country.timezones.join(', ')
-
   const convertBordersToString = () => {
     const borderCodes = props.borderCodes
     let countryBorders = props.country.borders
@@ -73,58 +70,96 @@ const CountrySearchSingleDescription = props => {
     }
     return resultArr.join(', ')
   }
+
+  const countrySimplified = {
+    capital: props.country.capital,
+    flag: props.country.flag,
+    organisations: {
+      regionalBlocs: props.country.regionalBlocs
+    },
+    geography: {
+      region: props.country.region,
+      subregion: props.country.subregion,
+      borders: convertBordersToString(),
+      timezones: props.country.timezones.join(', '),
+      area: props.country.area
+    },
+    economy: {
+      gini: props.country.gini,
+      currencies: convertCurrenciesToString()
+    },
+    people: {
+      population: props.country.population,
+      demonym: props.country.demonym,
+      languages: convertLanguagesToString()
+    }
+  }
+
+  console.log(countrySimplified)
+
+  
   
   return (
     <StyledCountrySearchSingleDescription>         
-      <StyledHeading>{country.name}</StyledHeading>
-      <StyledFlag src={country.flag} alt={`${country.name} flag`}/>
-      <StyledCapitalText>{country.capital ? `capital: ${country.capital}` : ''}</StyledCapitalText>
+      <StyledHeading>{countrySimplified.name}</StyledHeading>
+      <StyledFlag src={countrySimplified.flag} alt={`${countrySimplified.name} flag`}/>
+      <StyledCapitalText>{countrySimplified.capital ? `capital: ${countrySimplified.capital}` : ''}</StyledCapitalText>
       <MapboxGLMap country={props.country} />
+
+      {
+      countrySimplified.organisations.regionalBlocs.length 
+      ?
       <StyledSection>
         <StyledSectionHeading>
           <StyledIcon className="fas fa-landmark"></StyledIcon>
           <span>ORGANISATIONS</span>
         </StyledSectionHeading>
         <ul>
-          {country.regionalBlocs.map(org => (
+          {countrySimplified.organisations.regionalBlocs.map(org => (
             <li key={org.acronym}>
               {`${org.acronym} (${org.name})`}
             </li>
           ))}
         </ul>
       </StyledSection>
+      :
+      null
+      }
+
       <StyledSection>
         <StyledSectionHeading>
           <StyledIcon className="fas fa-globe-asia"></StyledIcon>
           <span>GEOGRAPHY</span>
         </StyledSectionHeading>
         <ul>
-          <li>Region: { country.region }</li>
-          <li>Subregion: { country.subregion }</li>
-          <li>Borders: { convertBordersToString() }</li>
-          <li>Timezones: { timezones }</li>
-          <li>Land area: { `${formatThousands(country.area, ',')} km²` }</li>
+          { countrySimplified.geography.region ? <li>Region: { countrySimplified.geography.region }</li> : null }
+          { countrySimplified.geography.subregion ? <li>Subregion: { countrySimplified.geography.subregion }</li> : null }
+          { countrySimplified.geography.borders ? <li>Borders: { convertBordersToString() }</li> : null }
+          { countrySimplified.geography.timezones ? <li>Timezones: { countrySimplified.geography.timezones }</li> : null }
+          { countrySimplified.geography.area ? <li>Land area: { `${formatThousands(countrySimplified.geography.area, ',')} km²` }</li> : null }
         </ul>
       </StyledSection>
+
       <StyledSection>
         <StyledSectionHeading>
           <StyledIcon className="fas fa-dollar-sign"></StyledIcon>
           <span>ECONOMY</span>
         </StyledSectionHeading>
         <ul>
-          <li>Gini index: { country.gini }</li>
-          <li>Currencies: { convertCurrenciesToString() }</li>
+          { countrySimplified.economy.gini ? <li>Gini index: { countrySimplified.economy.gini }</li> : null }
+          { countrySimplified.economy.currencies ? <li>Currencies: { convertCurrenciesToString() }</li> : null }
         </ul>
       </StyledSection>
+
       <StyledSection>
         <StyledSectionHeading>
           <StyledIcon className="fas fa-users"></StyledIcon>
           <span>PEOPLE</span>
         </StyledSectionHeading>
         <ul>
-          <li>Population: { formatThousands(country.population, ',') }</li>
-          <li>Demonym: { country.demonym }</li>
-          <li>Languages: { convertLanguagesToString() }</li>
+          { countrySimplified.people.population ? <li>Population: { formatThousands(countrySimplified.people.population, ',') }</li> : null }
+          { countrySimplified.people.demonym ? <li>Demonym: { countrySimplified.people.demonym }</li> : null }
+          { countrySimplified.people.languages ? <li>Languages: { convertLanguagesToString() }</li> : null }
         </ul>
       </StyledSection>
     </StyledCountrySearchSingleDescription>
