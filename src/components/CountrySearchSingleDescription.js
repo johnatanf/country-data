@@ -94,11 +94,7 @@ const CountrySearchSingleDescription = props => {
       languages: convertLanguagesToString()
     }
   }
-
-  console.log(countrySimplified)
-
-  
-  
+    
   return (
     <StyledCountrySearchSingleDescription>         
       <StyledHeading>{countrySimplified.name}</StyledHeading>
