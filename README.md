@@ -1,4 +1,4 @@
-# todo-list
+# country-data
 
 ## Demo
 [Click here](https://johnatanf.github.io/country-data/) to see a live demo of country-data. 
