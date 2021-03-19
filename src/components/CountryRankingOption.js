@@ -12,7 +12,6 @@ const StyledCountryRankingItem = styled.div`
 
   &:hover {
     transition: background 0.5s;
-    cursor: pointer;
     background: #dcdcdc;
   }
 `
@@ -24,8 +23,11 @@ const StyledIcon = styled.i`
 `
 
 const StyledInfoIcon = styled.i`
+  position: relative;
+  z-index: 10;
   color: #333;
   flex-basis: 30px;
+  font-size: 20px;
   text-align: center;
   position: relative;
   transition: color .2s;
@@ -56,11 +58,35 @@ const StyledPopupInfo = styled.div`
   border: 3px solid rgba(0, 0, 0, .7);
   border-radius: 2px;
   transition: all .2s;
+
+  @media only screen and (max-width: 600px) {
+    top: 25px;
+    left: 0;
+    width: 150px;
+    padding: 5px 10px;
+  }
+`
+
+const StyledButton = styled.button`
+  outline: none;
+  border: 0;
+  border-radius: 2px;
+  padding: 5px 10px;
+  background-color: #5c7cfa;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+  transition: background-color .1s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #224efd;
+  }
 `
 
 const CountryRankingOption = props => {
   return (
-    <StyledCountryRankingItem onClick={() => props.setOption(props.value)}>
+    <StyledCountryRankingItem >
       <StyledIcon className={props.iconClasses}></StyledIcon>
       <p>{props.title}</p>
       { 
@@ -76,6 +102,8 @@ const CountryRankingOption = props => {
       : null 
 
       }
+
+      <StyledButton onClick={() => props.setOption(props.value)}>view</StyledButton>
     </StyledCountryRankingItem>
   )
 }
