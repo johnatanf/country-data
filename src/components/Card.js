@@ -34,6 +34,8 @@ const Card = props => {
           countries={props.countries} 
           option={props.option}
           setOption={props.setOption}
+          setMode={props.setMode}
+          setSearch={props.setSearch}
         />
         
         }

@@ -9,6 +9,7 @@ const StyledCountryRankingItem = styled.div`
   border-top: 1px solid black;
   background: #fafafa;
   gap: 20px;
+  cursor: pointer;
 
   &:hover {
     transition: background 0.5s;
@@ -37,8 +38,15 @@ const StyledStatistic = styled.span`
 `
 
 const CountryRankingItem = props => {
+  const viewCountryDetails = () => {
+    props.setMode('search');
+    props.setSearch(props.countryName);
+  }
+
   return (
-    <StyledCountryRankingItem>
+    <StyledCountryRankingItem
+      onClick={viewCountryDetails}
+    >
       <StyledRank>{props.rank}</StyledRank>
       <StyledFlag src={props.imgUrl} alt={props.imgAlt} />
       <StyledCountryName>{props.countryName}</StyledCountryName>

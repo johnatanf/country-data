@@ -62,6 +62,8 @@ const RankingsMode = props => {
             imgAlt={`${ country.name } flag`}
             countryName={ country.name }
             statistic={ `${formatThousands(country[option] , ',')} ${option === 'area' ? 'km²' : ''}` }
+            setMode={ props.setMode }
+            setSearch = { props.setSearch }
           />
         )}
       </>

@@ -7,7 +7,7 @@ const App = () => {
   const [countries, setCountries] = useState([])
   const [search, setSearch] = useState('')
   const [option, setOption] = useState('')
-  const [mode, setMode] = useState('search')
+  const [mode, setMode] = useState('search') // options: 'search' and 'rankings' 
 
   useEffect(() => { // retrieve countries from api or from local storage 
     const retrieveCountries = async () => {
@@ -37,6 +37,7 @@ const App = () => {
         option={option}
         setOption={setOption}
         mode={mode}
+        setMode={setMode}
       />
     </div>
   )
