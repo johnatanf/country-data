@@ -3,23 +3,29 @@ import styled from 'styled-components'
 
 const StyledCountryRankingNavigation = styled.div`
   display: flex;
-  margin: 20px 0;
+  margin: 20px 30px;
   justify-content: space-around;
   align-items: center;
   font-family: Open Sans;
   padding: 0px 25px;
+
+  @media only screen and (max-width: 600px) {
+    margin: 20px 0;
+  }
 `
 
 const StyledBackButton = styled.span`
   transition: background 0.5s;
-  background: #212121;
+  background: #5c7cfa;
   color: white;
   font-size: 1.25em;
-  padding: 5px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  transition: background .2s;
 
   &:hover {
     transition: background 0.5s;
-    background: black;
+    background: #224efd;
     cursor: pointer;
   }
 `
@@ -54,15 +60,11 @@ const StyledOrder = styled.div`
   & > label {
     cursor: pointer;
   }
-
-  .ascending {
-    transform: rotate(0deg);
-  }
 `
 
 const StyledIcon = styled.span`
-  color: green;
-  transform: rotate(180deg);
+  color: #4EA32A;
+  font-size: 35px;
 `
 
 const CountryRankingNavigation = props => {
@@ -86,9 +88,8 @@ const CountryRankingNavigation = props => {
           />
         </div>
         <StyledOrder onClick={ toggleOrder }>
-          <label>order: </label>
           <StyledIcon 
-            className={`${props.order === 'ascending' ? 'ascending' : ''} fas fa-angle-double-up`}            
+            className={props.order === 'ascending' ? 'fas fa-sort-numeric-up-alt' : 'fas fa-sort-numeric-down-alt' }
           >
           </StyledIcon>
         </StyledOrder>
