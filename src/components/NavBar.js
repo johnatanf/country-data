@@ -5,7 +5,7 @@ const StyledNav = styled.nav`
   display: flex;
   font-family: "Open Sans";
   font-size: 1.25em;
-  background: #212121;
+  background: #333;
   width: 65%;
   min-width: 350px;
   max-width: 500px;
@@ -16,7 +16,7 @@ const StyledNav = styled.nav`
 
   .active {
     text-decoration: underline;
-    background-color: #333;
+    background-color: #212121;
   }
 
   @media (max-width: 576px) {
