@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CountryRankingOption from '../CountryRankingOption'
 import CountryRankingItem from '../CountryRankingItem'
 import CountryRankingNavigation from '../CountryRankingNavigation'
 import formatThousands from 'format-thousands'
 
 const RankingsMode = props => {  
-
-  const [numberOfEntries, setNumberOfEntries] = useState(25)
-  const [order, setOrder] = useState('ascending')
 
   if (!props.option) {
     return (
@@ -40,19 +37,19 @@ const RankingsMode = props => {
     const sortDescending = (a, b) => b[option] - a[option]
   
     const rankedCountries = props.countries
-      .sort(order === 'descending' ? sortDescending : sortAscending)
+      .sort(props.order === 'descending' ? sortDescending : sortAscending)
       .filter(country => country[option]) // remove countries that don't have the statistic in question 
-      .slice(0, numberOfEntries)
+      .slice(0, props.numberOfEntries)
   
     return (
       <>
         <CountryRankingNavigation
           statistic={ props.option }
           setOption={ props.setOption }
-          numberOfEntries={ numberOfEntries }
-          setNumberOfEntries={ setNumberOfEntries }
-          order={ order }
-          setOrder={ setOrder }
+          numberOfEntries={ props.numberOfEntries }
+          setNumberOfEntries={ props.setNumberOfEntries }
+          order={ props.order }
+          setOrder={ props.setOrder }
         />
         {rankedCountries.map((country, index) => 
           <CountryRankingItem 

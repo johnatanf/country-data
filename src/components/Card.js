@@ -36,6 +36,10 @@ const Card = props => {
           setOption={props.setOption}
           setMode={props.setMode}
           setSearch={props.setSearch}
+          numberOfEntries={props.numberOfEntries}
+          setNumberOfEntries={props.setNumberOfEntries}
+          order={props.order}
+          setOrder={props.setOrder}
         />
         
         }
