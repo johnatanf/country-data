@@ -22,7 +22,7 @@ const StyledLink = styled.a`
 const CardFooter = (props) => {
   return (
     <StyledFooter>
-      Data source: REST COUNTRIES (<StyledLink href='https://restcountries.eu/'>https://restcountries.eu</StyledLink>)
+      Data source: REST COUNTRIES (<StyledLink href='https://restcountries.com/'>https://restcountries.com</StyledLink>)
     </StyledFooter>
   )
 }
